@@ -18,6 +18,8 @@ const App = () => {
   ];
   //state
   const [walletAddress, setWalletAddress] = useState(null);
+  const [inputValue, setInputValue] = useState("");
+  const [gifList, setGifList] = useState([]);
   /*
    * This function holds the logic for deciding if a Phantom Wallet is
    * connected or not
@@ -61,6 +63,19 @@ const App = () => {
     }
   };
 
+  const sendGif = async () => {
+    if (inputValue.length > 0) {
+      console.log("Gif link:", inputValue);
+    } else {
+      console.log("Empty input. Try again.");
+    }
+  };
+
+  const onInputChange = (event) => {
+    const { value } = event.target;
+    setInputValue(value);
+  };
+
   /*
    * We want to render this UI when the user hasn't connected
    * their wallet to our app yet.
@@ -79,10 +94,16 @@ const App = () => {
       <form
         onSubmit={(event) => {
           event.preventDefault();
+          sendGif();
         }}
       >
         <div className="flex flex-row items-center justify-center">
-          <input type="text" placeholder="Enter gif link!" />
+          <input
+            value={inputValue}
+            onChange={onInputChange}
+            type="text"
+            placeholder="Enter gif link!"
+          />
           <button
             type="submit"
             class="bg-gradient-to-r from-green-400 to-blue-500 hover:bg-blue-400 text-white font-bold py-2 px-4 border-b-2 border-green-400 hover:border-blue-500 rounded w-28"
@@ -92,7 +113,7 @@ const App = () => {
         </div>
       </form>
       <div className="gif-grid">
-        {TEST_GIFS.map((gif) => (
+        {gifList.map((gif) => (
           <div className="gif-item" key={gif}>
             <img src={gif} alt={gif} />
           </div>
@@ -112,6 +133,18 @@ const App = () => {
     window.addEventListener("load", onLoad);
     return () => window.removeEventListener("load", onLoad);
   }, []);
+
+  useEffect(() => {
+    if (walletAddress) {
+      console.log("Fetching GIF list...");
+
+      // Call Solana program here.
+
+      // Set state
+      setGifList(TEST_GIFS);
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [walletAddress]);
 
   return (
     <div className="App">
