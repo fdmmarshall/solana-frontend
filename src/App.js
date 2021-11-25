@@ -82,8 +82,11 @@ const App = () => {
         }}
       >
         <input type="text" placeholder="Enter gif link!" />
-        <button type="submit" className="cta-button submit-gif-button">
-          Submit
+        <button
+          type="submit"
+          class="bg-gradient-to-r from-green-400 to-blue-500 hover:bg-blue-400 text-white font-bold py-2 px-4 border-b-4 border-blue-700 hover:border-blue-500 rounded w-28"
+        >
+          Button
         </button>
       </form>
       <div className="gif-grid">
