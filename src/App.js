@@ -89,7 +89,7 @@ const [walletAddress, setWalletAddress] = useState(null);
         <div className="header-container">
           <p className="header">🖼 GIF Portal</p>
           <p className="sub-text">
-            View your GIF collection in the metaverse ✨
+            My life explained by a series of SpongeBob SquarePants gifs 😎 ✨
           </p>
           { !walletAddress && renderNotConnectedContainer()}
         </div>
