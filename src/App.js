@@ -11,8 +11,10 @@ const App = () => {
   const TEST_GIFS = ['https://media.giphy.com/media/jhFUy6eCy6xs4/giphy.gif',
     'https://media.giphy.com/media/3o6ZtbBRPGc1LvF4Na/giphy.gif',
     'https://media.giphy.com/media/IzVwOO8xZsfks/giphy.gif',
+    'https://media.giphy.com/media/l0MYAs5E2oIDCq9So/giphy.gif',
     'https://media.giphy.com/media/4no7ul3pa571e/giphy.gif',
-    'https://media.giphy.com/media/JQDir3xeRqlxK/giphy.gif'
+    'https://media.giphy.com/media/JQDir3xeRqlxK/giphy.gif',
+    'https://media.giphy.com/media/3qlcbZfv4NGtW/giphy.gif'
   ]
 //state
 const [walletAddress, setWalletAddress] = useState(null);  
@@ -71,6 +73,18 @@ const [walletAddress, setWalletAddress] = useState(null);
     </button>
   );
 
+  const renderConnectedContainer = () => (
+    <div className="connected-container">
+      <div className="gif-grid">
+        {TEST_GIFS.map(gif => (
+          <div className="gif-item" key={gif}>
+            <img src={gif} alt={gif} />
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+
   /*
    * When our component first mounts, let's check to see if we have a connected
    * Phantom Wallet
@@ -91,7 +105,8 @@ const [walletAddress, setWalletAddress] = useState(null);
           <p className="sub-text">
             My life explained by a series of SpongeBob SquarePants gifs 😎 ✨
           </p>
-          { !walletAddress && renderNotConnectedContainer()}
+          {!walletAddress && renderNotConnectedContainer()}
+           {walletAddress && renderConnectedContainer()}
         </div>
         <div className="footer-container">
           <img alt="Twitter Logo" className="twitter-logo" src={twitterLogo} />
