@@ -81,13 +81,15 @@ const App = () => {
           event.preventDefault();
         }}
       >
-        <input type="text" placeholder="Enter gif link!" />
-        <button
-          type="submit"
-          class="bg-gradient-to-r from-green-400 to-blue-500 hover:bg-blue-400 text-white font-bold py-2 px-4 border-b-4 border-blue-700 hover:border-blue-500 rounded w-28"
-        >
-          Button
-        </button>
+        <div className="flex flex-row items-center justify-center">
+          <input type="text" placeholder="Enter gif link!" />
+          <button
+            type="submit"
+            class="bg-gradient-to-r from-green-400 to-blue-500 hover:bg-blue-400 text-white font-bold py-2 px-4 border-b-2 border-green-400 hover:border-blue-500 rounded w-28"
+          >
+            submit
+          </button>
+        </div>
       </form>
       <div className="gif-grid">
         {TEST_GIFS.map((gif) => (
