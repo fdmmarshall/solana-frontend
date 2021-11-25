@@ -8,6 +8,12 @@ const TWITTER_HANDLE = '_buildspace';
 const TWITTER_LINK = `https://twitter.com/${TWITTER_HANDLE}`;
 
 const App = () => {
+  const TEST_GIFS = ['https://media.giphy.com/media/jhFUy6eCy6xs4/giphy.gif',
+    'https://media.giphy.com/media/3o6ZtbBRPGc1LvF4Na/giphy.gif',
+    'https://media.giphy.com/media/IzVwOO8xZsfks/giphy.gif',
+    'https://media.giphy.com/media/4no7ul3pa571e/giphy.gif',
+    'https://media.giphy.com/media/JQDir3xeRqlxK/giphy.gif'
+  ]
 //state
 const [walletAddress, setWalletAddress] = useState(null);  
   /*
