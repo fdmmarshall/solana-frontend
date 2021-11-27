@@ -15,6 +15,7 @@ const App = () => {
     "https://media.giphy.com/media/4no7ul3pa571e/giphy.gif",
     "https://media.giphy.com/media/JQDir3xeRqlxK/giphy.gif",
     "https://media.giphy.com/media/3qlcbZfv4NGtW/giphy.gif",
+    "https://media.giphy.com/media/u5BzptR1OTZ04/giphy.gif"
   ];
   //state
   const [walletAddress, setWalletAddress] = useState(null);
